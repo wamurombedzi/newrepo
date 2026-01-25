@@ -1,50 +1,32 @@
-SELECT * from account
--- Task #1
-INSERT INTO account (account_firstname, account_lastname, account_email, account_password) 
+--
+-- Database: 'cse 340 project'
+-- Assignment 2, Task 1
+--
+
+-- Prompt 1 - Add new account in table "account"
+INSERT INTO account (account_firstname, account_lastname, account_email, account_password)
 VALUES ('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n');
 
--- Task #2
-UPDATE account
-SET account_type = 'Admin'
-WHERE account_firstname = 'Tony'
-  AND account_lastname = 'Stark'
-  
--- Task #3
+-- Prompt 2 - Update new account in table 'type' to ADMIN
+UPDATE account SET account_type = 'Admin' 
+WHERE account_firstname = 'Tony' AND account_lastname = 'Stark';
+
+-- Prompt 3 - Delete new account in table "account"
 DELETE FROM account
-WHERE account_firstname = 'Tony'
-  AND account_lastname = 'Stark'
+WHERE account_firstname = 'Tony' AND account_lastname = 'Stark';
 
-SELECT * from inventory
-
-SELECT * from classification
-
--- Task #4
+-- Prompt 4 - Modify 'GM HUMMER Description' in table 'inventory'
 UPDATE inventory
 SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
-WHERE inv_make = 'GM'
-	AND inv_model = 'Hummer'
+WHERE inv_make = 'GM' AND inv_model = 'Hummer';
 
--- Task #5
-SELECT 
-    inventory.inv_make, 
-    inventory.inv_model, 
-    classification.classification_name
-FROM 
-    inventory
-INNER JOIN 
-    classification
-ON 
-    inventory.classification_id = classification.classification_id
-WHERE 
-    classification.classification_name = 'Sport';
+-- Prompt 5 - Use inner JOIN to select the make and model "SPORT"
+SELECT i.inv_make, i.inv_model, c.classification_name
+FROM public.inventory i
+INNER JOIN public.classification c ON i.classification_id = c.classification_id
+WHERE c.classification_name = 'Sport';
 
-SELECT * from inventory
--- Task #6
-UPDATE inventory
-SET 
-    inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
+-- Prompt 6 -  UPDATE images path
+UPDATE public.inventory
+SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
-
-
-DELETE FROM classification
-WHERE classification_name = 'Slugbug'This is only meant to preserved the folder it resides in. It can be deleted when actual files are created and stored.
