@@ -1,4 +1,8 @@
-const pool = require("../database/")
+// This file is part of M-V-C, it contain the function to be called 
+// and Sql code to be used in order to get vehicles data 
+// that belong to a particular classification
+
+const pool = require("../database/index.js")
 
 /* ***************************
  *  Get all classification data
@@ -25,4 +29,21 @@ async function getInventoryByClassificationId(classification_id) {
     }
 }
 
-module.exports = { getClassifications }
+
+/* ***************************
+ *  Wk03-A Adding a function to Get inventory item by inv_id
+ * ************************** */
+async function getInventoryByInvId(inv_id) {
+    try {
+        const data = await pool.query(
+            `SELECT * FROM public.inventory WHERE inv_id = $1`,
+            [inv_id]
+        )
+        return data.rows[0] // I'm expecting one car, so return the first row
+    } catch (error) {
+        console.error("getinventorybyid error " + error)
+    }
+}
+
+
+module.exports = { getClassifications, getInventoryByClassificationId, getInventoryByInvId };

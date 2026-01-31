@@ -1,59 +1,51 @@
-<div class="container1">
-    <section class="container2">
-        <h1>Welcome to CSE Motors!</h1>
-            <picture>
-                <img src="/images/vehicles/delorean.jpg" alt="delorean" width="500">
-            </picture>
+<!-- Updating the Home View and adding semantic tags -->
+<h1>Welcome to CSE Motors!</h1>
+<%- messages() %>
 
-            <article>
-        1rs        <h2>DMC Delorean</h2>
-                <ul>
-                    <li>3 Cup holders</li>
-                    <li>Superman doors</li>
-                    <li>Fuzzy dice!</li>
-                </ul>
-                <div class="img-container">
-                    <img src="/images/site/own_today.png" alt="own_today" width="120">
-                </div>
-            </article>
+    <!-- The Hero section -->
+    <section id="hero">
+        <div id="hero-details">
+            <h2>DMC Delorean</h2>
+            <p>3 Cup holders<br>Superman doors<br>Fuzzy dice!</p>
+            <a href="#" title="Check out the Delorean" class="cta-button">Own Today</a>
+        </div>
+        <div>
+            <img src="/public/images/vehicles/delorean.jpg" alt="DMC Delorean Car">
+        </div>
     </section>
-    <div class="info-container">
-        <section class="reviews">
-            <h2>DMC Delorean Reviews</h2>
+
+    <div class="content-wrapper">
+        <!-- The Reviews and Upgrades Section -->
+        <section id="reviews">
+            <h3>DMC Delorean Reviews</h3>
             <ul>
-                <li>"So fast its almost like traveling in time." (4/5)</li>
+                <li>"So fast it's almost like traveling in time." (4/5)</li>
                 <li>"Coolest ride on the road." (4/5)</li>
                 <li>"I'm feeling McFly!" (5/5)</li>
                 <li>"The most futuristic ride of our day." (4.5/5)</li>
                 <li>"80's livin and I love it!" (5/5)</li>
             </ul>
         </section>
-        <section class="upgrades">
-            <h2>Delorean Upgrades</h2>
-            <div class="upgrades-item">
-                <div class="box">
-                    <img src="/images/upgrades/flux-cap.png" alt="flux-cap" width="50">
+
+        <section id="upgrades">
+            <h3>Delorean Upgrades</h3>
+            <div class="upgrade-grid">
+                <div class="upgrade-item">
+                    <div class="img-box"><img src="/public/images/upgrades/hub-cap.jpg" alt="Flux Capacitor"></div>
+                    <a href="#">Flux Capacitor</a>
                 </div>
-                <a href="/upgrades" class="">Flux Capacitor</a>
-            </div>
-            <div class="upgrades-item">
-                <div class="box">
-                    <img src="/images/upgrades/flame.jpg" alt="flame" width="50">
+                <div class="upgrade-item">
+                    <div class="img-box"><img src="/public/images/upgrades/flame.jpg" alt="Flame Decals"></div>
+                    <a href="#">Flame Decals</a>
                 </div>
-                <a href="/upgrades" class="">Flame Decals</a>
-            </div>
-            <div class="upgrades-item">
-                <div class="box">
-                    <img src="/images/upgrades/bumper_sticker.jpg" alt="bumper sticker" width="50">
+                <div class="upgrade-item">
+                    <div class="img-box"><img src="/public/images/upgrades/bumper_sticker.jpg" alt="Bumper Sticker"></div>
+                    <a href="#">Bumper Stickers</a>
                 </div>
-                <a href="/upgrades" class="">Bumper Stickers</a>
-            </div>
-            <div class="upgrades-item">
-                <div class="box">
-                    <img src="/images/upgrades/hub-cap.jpg" alt="hub cap" width="50">
+                <div class="upgrade-item">
+                    <div class="img-box"><img src="/public/images/upgrades/hub-cap.jpg" alt="Hub Caps"></div>
+                    <a href="#">Hub Caps</a>
                 </div>
-                <a href="/upgrades" class="">Hub Caps</a>
             </div>
         </section>
     </div>
-</div>

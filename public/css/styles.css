@@ -1,342 +1,519 @@
-:root {
-  --primary-color: #07192b;
-  --secondary-color: #ffffff;
-  --tertiary-color: #7b115e;
-  --font-heading: 'Oswald', sans-serif;
-  --font-paragraph: 'Roboto', serif;
-  --font-base: 20px;
-  --small-font: 0.8em;
-  --large-font: 1.2em;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/******* Change Box Model ***************/
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
 
-/********* Breakpoints **********
-sm = 640px
-md = 768px
-lg = 1024px
-xl = 1280px
-***************/
+/* Mobile First Approach */
+/* Global Styles */
+:root {
+  --pop-color: #00b1d8;
+  --accent-color: #005e70;
+  --bg-light: #eeeeee;
+  --text-dark: #000000;
+  --myfont: "Merriweather Sans", sans-serif;
+}
 
-html,
+
 body {
-  height: 100%;
-  width: 100%;
-  padding: 0;
+  background-image: url('/images/site/checkerboard.jpg');
+  background-repeat: repeat;
+  font-family: var(--myfont);
   margin: 0;
-  font-family: var(--font-paragraph);
-  font-size: var(--font-base);
-  color: var(--primary-color);
-  line-height: 1.6;
-  overflow-x: hidden;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  font-weight: 400;
-  font-style: normal;
-  background-color: var(--secondary-color);
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
-}
-
-@media (min-width: 768px) {
-  body {
-    background-image: url('/images/site/small_check.jpg');
-  }
-}
-
-h1 {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-style: normal;
-}
-
-h1 {
-  font-size: 2.5em;
-}
-
-h2 {
-  font-size: 2em;
-}
-
+/* The main tag*/
 #wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-  background-color: var(--secondary-color);
+  background-color: white;
+  max-width: 900px;
+  margin: 20px auto;
+  border: 5px solid #00b1d8;
+  padding: 20px;
 }
 
-@media (min-width: 768px) {
-  #wrapper {
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 5px solid var(--primary-color);
-    margin: 2em 5em;
-  }
+h1 {
+  font-size: large;
 }
 
+/* The Header Part */
 #top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--secondary-color);
-  overflow: hidden;
-  padding: 20px 30px;
-  font-family: var(--font-heading);
 }
 
-.siteName a {
-  font-size: 2.5em;
-  font-weight: 800;
-  color: var(--primary-color);
+#top-header a {
   text-decoration: none;
-}
-
-.siteName a:hover {
-  color: var(--primary-color);
+  color: var(--text-dark);
 }
 
 #tools a {
-  color: var(--primary-color);
-  text-decoration: none;
-  margin: 0 10px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
 }
 
-#tools a:hover {
-  color: var(--primary-color);
-}
+/* The Navigation - Black bar */
 
-nav {
-  font-family: var(--font-heading);
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px 0;
-  width: 100%;
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-around;
+#nav-list {
+  background-color: #333;
   list-style: none;
-  margin: 0;
   padding: 0;
-}
-
-nav li a {
-  color: white;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-nav li a:hover {
-  color: var(--primary-color);
-  cursor: pointer;
-}
-
-footer {
+  margin: 20px 0;
   display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 10px;
+  justify-content: center;
   width: 100%;
 }
 
-.copyright {
-  color: var(--primary-color);
-  font-size: 0.8em;
+#nav-list li {
+  flex: 1;
+  /*Forcing item to take up equal space and shrink to fit */
+  text-align: center;
 }
 
-footer a {
-  color: var(--primary-color);
-  font-size: 0.8em;
+#nav-list li a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 2px;
+  display: block;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  /* Preventing the text from wrapping to a second line */
 }
 
-footer a:hover {
-  color: var(--primary-color);
+#nav-list li a:hover {
+  background-color: var(--pop-color);
+  color: black;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
+/* --- The HERO SECTION Part--- */
+
+#hero {
+  position: relative;
+  text-align: left;
+  padding-bottom: 100px;
 }
 
-.container1 {
-  background-color: var(--secondary-color);
-  padding: 20px;
+#hero img {
+  width: 100%;
+  height: auto;
 }
 
-.container2 {
+#hero-details {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--accent-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  text-align: left;
+  max-width: 85%;
+}
+
+#hero-details h2 {
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.cta-button {
+  background-color: var(--pop-color);
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 8px 10px;
+  font-weight: bolder;
+  font-size: 0.8rem;
+  border: 1.5px solid black;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.cta-button:hover {
+  background-color: rgba(15, 205, 248, 0.50);
+  transform: translateY(-2px);
+}
+
+/* --- The REVIEWS SECTION --- */
+#reviews {
+  margin-bottom: 30px;
+}
+
+#reviews ul {
+  padding-left: 20px;
+}
+
+#reviews li {
+  margin-bottom: 15px;
+}
+
+/* --- The UPGRADES SECTION --- */
+.upgrade-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
 
-.container2 h1 {
-  grid-column: 1/13;
-  grid-row: 1;
+.upgrade-item {
+  background-color: var(--pop-color);
+  padding: 10px;
+  text-align: center;
+}
+
+.upgrade-item .img-box {
+  background-color: white;
+  border: 1px solid black;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 10px;
 }
 
-.container2 picture {
-  grid-column: 4/11;
-  grid-row: 2;
-  flex-shrink: 0;
+.upgrade-item img {
+  max-height: 70px;
 }
 
-.container2 picture img {
-  width: 100%;
-  height: auto;
+.upgrade-item a {
+  color: #000024;
+  font-size: 0.9rem;
 }
 
-@media (min-width: 1024px) {
-  .container2 picture img {
-    width: 100%;
-    height: auto;
-  }
+#footer-bottom {
+  margin-top: 2rem;
 }
 
-.container2 article {
-  display: flex;
-  flex-direction: column;
-  grid-column: 1/6;
-  grid-row: 2;
-  background-color: var(--secondary-color);
-  padding: 15px;
-  border-radius: 5px;
-  max-width: 300px;
-  max-height: 300px;
-}
-
-.container2 article h2 {
-  font-size: 1.5em;
-  color: var(--primary-color);
-  margin: 0 0 10px;
-}
-
-.container2 article ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  color: var(--primary-color);
-  font-size: 1em;
-  font-weight: 600;
-}
-
-@media (min-width: 1024px) {
-  .container2 article {
-    grid-column: 1/4;
-  }
-
-  .container2 article h2 {
-    font-size: 2em;
-  }
-
-  .container2 article ul {
-    font-size: 1.2em;
-  }
-}
-
-.container2 article ul li {
-  margin-bottom: 5px;
-}
-
-.container2 article .img-container {
-  display: flex;
-  justify-content: center;
-}
-
-.container2 article img {
-  width: 140px;
-  height: auto;
-  cursor: pointer;
-}
-
-.upgrades {
-  grid-area: upgrades;
-  display: grid;
-  grid-template-columns: repeat(2, 200px);
-  gap: 20px;
-  justify-content: center;
-}
-
-.reviews {
-  grid-area: reviews;
-  display: flex;
-  flex-direction: column;
-}
-
-.info-container {
+/* Wk03-A CSS Styling */
+/* Inventory Grid Styling */
+#inv-display {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas:
-    'reviews'
-    'upgrades';
-  column-gap: 10px;
+  /* Single column on mobile */
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
 }
 
-.info-container h2 {
+#inv-display li {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin: 5px 0;
+  transition: transform 0.2s;
 }
 
-@media (min-width: 1024px) {
-  .info-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'upgrades reviews';
-  }
+#inv-display li:hover {
+  transform: scale(1.02);
+  /* Slight zooming on hover */
 }
 
-.reviews ul {
-  line-height: 2;
-  font-weight: 600;
-  margin: 0 auto;
+#inv-display img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  /* Keeping aspect ratio clean */
 }
 
-.upgrades h2 {
-  grid-column: span 2;
-  text-align: center;
+/* for the div element syling */
+.namePrice {
+  padding: 15px;
+  background-color: #f9f9f9;
 }
 
-.upgrades-item {
+.namePrice h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.namePrice span {
+  font-weight: bold;
+  color: #222;
+  font-size: 1.1rem;
+}
+
+/* Detail View Styling */
+#detail-display {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* Stack on mobile */
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.upgrades-item .box {
-  display: flex;
-  background-color: var(--primary-color);
-  justify-content: center;
-  align-items: center;
-  width: 210px;
-  height: 120px;
-}
-
-.upgrades-item .box img {
-  width: 60px;
+#detail-display img {
+  width: 100%;
+  max-width: 500px;
   height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.upgrades-item a {
-  color: var(--primary-color);
-  font-size: 0.8em;
+#detail-info {
+  padding: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+#detail-info h2 {
+  margin-top: 0;
+}
+
+#detail-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+/* Container for the whole error section */
+.error-container {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  /* Keeping the blur inside */
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* The Background Image */
+.error-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/site/crashed-car.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  /*creating the blur effect */
+  opacity: 0.3;
+  /* Making it look faded */
+  z-index: 1;
+}
+
+/* The Content Text on top of the blur */
+.error-content {
+  position: relative;
+  z-index: 2;
+  /* Keeping the text above the background */
+  padding: 40px;
+}
+
+.error-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0c0c0c;
+}
+
+.error-details {
+  font-style: italic;
+  color: #0c0c0c;
+}
+
+/* ============================ */
+/* WK04 ACTIVITY LESSON CSS STYLES    */
+/* ============================ */
+/* 1. Flash message unorder-list */
+.notice {
+  font-family: var(--myfont);
+  font-style: italic;
+  color: rgb(232, 5, 5);
+}
+
+/* LOGIN FORM STYLE  */
+/* 1. Ensure padding doesn't widen elements causing scrollbars */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* 2. Container takes full available width with some breathing room */
+.login-container {
+  width: 96%;
+  margin: 20px auto;
+  /* Centering it */
+  padding: 10px;
+  background-color: #00B1D8;
+}
+
+/* 3. Form Layout - Stacked vertically */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #32475C;
+  padding: 1rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+/* 4. Labels - block level for easy reading */
+.login-form label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* 5. Inputs - Large touch targets*/
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* 6. Span Password Rules Text */
+.login-form span {
+  font-size: 0.85rem;
+  color: #fff;
+  margin-bottom: 10px;
+  display: block;
+  /*siting on its own line */
+  line-height: 1.3;
+}
+
+/* 7. Button - adjustable width to the text */
+#pswdBtn,
+.login-form button {
+  background-color: #fff;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+  min-width: 120px;
+  /* Ensuring it isn't tOO tiny */
+  align-self: center;
+}
+
+.login-form button:hover {
+  background-color: #ADD8E6;
+}
+
+input:required {
+  border-bottom: solid 3px red;
+}
+
+input:required:valid {
+  border-bottom: solid 3px green;
+}
+
+/* 8. Registration Link Styling */
+.signup-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.signup-link a {
+  color: #ccf2ff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* ============================ */
+/* LARGER SCREENS ADJUSTMENT    */
+/* ============================ */
+
+@media screen and (min-width: 700px) {
+  #nav-list li a {
+    font-size: 1.1rem;
+    padding: 15px 10px;
+  }
+
+  #hero {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  #hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #hero-details {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    text-align: left;
+    font-size: larger;
+  }
+
+  #hero-details h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 15px 30px;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    /*The upgrades on left, reviews on right */
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  #upgrades,
+  #reviews {
+    flex: 1;
+  }
+
+  /* WK03-A CSS STYLING */
+  #inv-display {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  #detail-display {
+    flex-direction: row;
+    /* Side by side on desktop */
+    align-items: flex-start;
+  }
+
+  #detail-info {
+    flex: 1;
+    /* Take up remaining space */
+  }
+
+  /* WK04 LOGIN FORM STYLE  */
+  .login-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    /* More top margin on desktop */
+  }
+
+  .login-form {
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
 }
